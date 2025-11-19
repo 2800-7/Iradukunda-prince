@@ -1,0 +1,29 @@
+package _28007.q1;
+
+import _27906.q4.Product;
+
+public class StockItem extends Product {
+    private int quantityAvailable;
+    private int reorderLevel;
+
+    public StockItem(int id, java.util.Date createdDate, java.util.Date updatedDate,
+                     String warehouseName, String location, String contactNumber,
+                     String categoryName, String categoryCode,
+                     String supplierName, String supplierEmail, String supplierPhone,
+                     String productName, double unitPrice, int stockLimit,
+                     int quantityAvailable, int reorderLevel) {
+        super(id, createdDate, updatedDate, warehouseName, location, contactNumber,
+                categoryName, categoryCode,
+                supplierName, supplierEmail, supplierPhone,
+                productName, unitPrice, stockLimit);
+
+        if (quantityAvailable < 0 || reorderLevel < 0)
+            throw new IllegalArgumentException("Values must be >= 0");
+
+        this.quantityAvailable = quantityAvailable;
+        this.reorderLevel = reorderLevel;
+    }
+
+    public int getQuantityAvailable() { return quantityAvailable; }
+    public int getReorderLevel() { return reorderLevel; }
+}
